@@ -20,7 +20,6 @@ import lombok.Setter;
 public class Card implements Serializable {
     private CardSuitEnum suit;
     private CardRankingEnum rank;
-
     public Integer getRankToInt() {
         return rank.ordinal();
     }
