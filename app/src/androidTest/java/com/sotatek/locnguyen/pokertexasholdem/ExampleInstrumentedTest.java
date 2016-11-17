@@ -4,8 +4,12 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.sotatek.locnguyen.pokertexasholdem.model.Deck;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
@@ -22,5 +26,10 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.sotatek.locnguyen.pokertexasholdem", appContext.getPackageName());
+    }
+
+    @Test
+    public void testDeck(){
+        Deck deck = new Deck(new Random());
     }
 }

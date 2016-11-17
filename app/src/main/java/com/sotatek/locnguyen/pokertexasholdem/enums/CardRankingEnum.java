@@ -16,5 +16,10 @@ public enum CardRankingEnum {
     JACK,
     QUEEN,
     KING,
-    ACE
+    ACE;
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

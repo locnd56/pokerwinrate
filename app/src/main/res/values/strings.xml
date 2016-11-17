@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Pokertexasholdem</string>
+    <string name="player">Player :</string>
+    <string name="suit_diamond"> Rô</string>
+    <string name="suit_heart"> Cơ</string>eart
+    <string name="suit_spades"> Bích</string>
+    <string name="suit_clubs"> Tép</string>
 </resources>
