@@ -8,6 +8,7 @@ import com.sotatek.locnguyen.pokertexasholdem.enums.HandType;
 import com.sotatek.locnguyen.pokertexasholdem.enums.RANK;
 import com.sotatek.locnguyen.pokertexasholdem.enums.SUIT;
 import com.sotatek.locnguyen.pokertexasholdem.model.Best5Cards;
+import com.sotatek.locnguyen.pokertexasholdem.model.Card;
 import com.sotatek.locnguyen.pokertexasholdem.model.CardUnit;
 import com.sotatek.locnguyen.pokertexasholdem.model.Hand;
 
@@ -62,9 +63,9 @@ public class CardAdapter {
     }
 
     public void resumeCard(List<CardUnit> cards) {
-        cards.forEach(element -> {
+        for (CardUnit element : cards) {
             mapCard.put(element.rank.toString() + element.suit.toString(), element);
-        });
+        }
     }
 
     public void flop(CardUnit card1, CardUnit card2, CardUnit card3) {
@@ -125,13 +126,13 @@ public class CardAdapter {
     }
 
     private void cleanRateAndCount() {
-        players.keySet().forEach(key -> {
+        for (Integer key : players.keySet()) {
             Hand hand = players.get(key);
             hand.countBestHand = 0.0;
             hand.countSplit = 0.0;
             mapCard.remove(hand.card1.rank.toString() + hand.card1.suit.toString());
             mapCard.remove(hand.card2.rank.toString() + hand.card2.suit.toString());
-        });
+        }
         for (int i = 0; i < board.length; i++) {
             CardUnit card = board[i];
             if (card != null) {
@@ -141,12 +142,12 @@ public class CardAdapter {
     }
 
     private void recreateDeck() {
-        players.keySet().forEach(key -> {
+        for (Integer key : players.keySet()) {
             CardUnit card1 = players.get(key).card1;
             CardUnit card2 = players.get(key).card2;
             mapCard.put(card1.rank.toString() + card1.suit.toString(), card1);
             mapCard.put(card2.rank.toString() + card2.suit.toString(), card2);
-        });
+        }
         for (int i = 0; i < board.length; i++) {
             CardUnit card = board[i];
             if (card != null) {
@@ -156,36 +157,36 @@ public class CardAdapter {
     }
 
     private void calculateRate(int count) {
-        players.keySet().forEach(key -> {
+        for (Integer key : players.keySet()) {
             players.get(key).setRate(new BigDecimal(players.get(key).countBestHand / count * 100));
             players.get(key).setSplit(new BigDecimal(players.get(key).countSplit / count * 100));
-        });
+        }
     }
 
     private void calculate() {
         List<Best5Cards> hands = new ArrayList<>();
         Map<Integer, Best5Cards> result = new HashMap<>();
-        players.keySet().forEach(key -> {
+        for (Integer key : players.keySet()) {
             Best5Cards hand = getBestOfHand(players.get(key));
             hands.add(hand);
             result.put(key, hand);
-        });
+        }
         Best5Cards max = Collections.max(hands);
         List<Integer> bestHandKeys = new ArrayList<>();
-        players.keySet().forEach(key -> {
+        for (Integer key : players.keySet()) {
             if (max.compareTo(result.get(key)) == 0) {
                 bestHandKeys.add(key);
             }
-        });
+        }
         if (bestHandKeys.isEmpty()) {
             return;
         }
         if (bestHandKeys.size() == 1) {
             players.get(bestHandKeys.get(0)).countBestHand++;
         } else {
-            bestHandKeys.forEach(key -> {
+            for (Integer key : bestHandKeys) {
                 players.get(key).countSplit++;
-            });
+            }
         }
 
     }
@@ -467,13 +468,13 @@ public class CardAdapter {
 
     public void printResult() {
         System.out.println("======Result rate=======");
-        players.keySet().forEach(key -> {
+        for (Integer key : players.keySet()) {
             BigDecimal result = players.get(key).rate;
             result.setScale(2, RoundingMode.HALF_UP);
             System.out.print("Player " + key + " : " + result.setScale(2, RoundingMode.HALF_UP) + " % ");
             BigDecimal split = players.get(key).splitRate;
             System.out.println("- Split:  " + split.setScale(2, RoundingMode.HALF_UP) + " %");
-        });
+        }
         // System.out.println("Split : " + split.setScale(2,
         // RoundingMode.HALF_UP) + " %");
     }
