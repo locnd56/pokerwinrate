@@ -17,7 +17,7 @@ public class InputQuantityPlayerActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inputquantityplayer);
+        setContentView(R.layout.activity_inputquantityplayer);
         initView();
         initListener();
     }

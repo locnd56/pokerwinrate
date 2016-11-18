@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OrderPlayer">
+        <attr name="addorder" format="string" />
+    </declare-styleable>
+    <declare-styleable name="ImageView">
+        <attr name="addimage" format="integer"></attr>
+        <attr name="isactivity" format="boolean"></attr>
+    </declare-styleable>
+</resources>

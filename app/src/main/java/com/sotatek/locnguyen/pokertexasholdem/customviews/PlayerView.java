@@ -2,53 +2,84 @@ package com.sotatek.locnguyen.pokertexasholdem.customviews;
 
 import android.app.Service;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sotatek.locnguyen.pokertexasholdem.R;
-import com.sotatek.locnguyen.pokertexasholdem.enums.CardRankingEnum;
 
 /**
  * Created by locnguyen on 16/11/2016.
  */
-public class PlayerView extends LinearLayout implements View.OnClickListener {
+public class PlayerView extends LinearLayout {
 
     Context context;
-    OnClickCardViewListener onClickCardViewListener;
+    OnClickRemovePlayerListener onClickRemovePlayerListener;
+    OnClickCardListener onClickCardListener;
     TextView tv_player;
+    TextView tv_orderplayer;
     CardView cv_card1;
     CardView cv_card2;
     EditText edt_stats;
     Button btn_remove;
+    String orderPlayer;
 
     public PlayerView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray a = context.getTheme().obtainStyledAttributes(
+                attrs,
+                R.styleable.OrderPlayer,
+                0, 0);
+        orderPlayer = a.getString(R.styleable.OrderPlayer_addorder);
         this.context = context;
         initView();
         initData();
         initListener();
     }
 
+    public OnClickCardListener getOnClickCardListener() {
+        return onClickCardListener;
+    }
+
+    public void setOnClickCardListener(OnClickCardListener onClickCardListener) {
+        this.onClickCardListener = onClickCardListener;
+    }
+
     private void initListener() {
         btn_remove.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "remove", Toast.LENGTH_LONG);
+                PlayerView.this.setVisibility(View.GONE);
+                onClickRemovePlayerListener.onClick();
+            }
+        });
+
+        cv_card1.setOnClickCardListener(new CardView.OnClickCardListener() {
+            @Override
+            public void onClick(View view, boolean isActivity) {
+                onClickCardListener.onClick(Integer.valueOf(orderPlayer), 1, view, isActivity);
+            }
+        });
+
+        cv_card2.setOnClickCardListener(new CardView.OnClickCardListener() {
+            @Override
+            public void onClick(View view, boolean isActivity) {
+                onClickCardListener.onClick(Integer.valueOf(orderPlayer), 2, view, isActivity);
             }
         });
     }
 
     private void initData() {
+    }
 
+    public void setOrderPlayer(String orderPlayer) {
+        tv_player.setText(orderPlayer);
     }
 
     private void initView() {
@@ -62,14 +93,19 @@ public class PlayerView extends LinearLayout implements View.OnClickListener {
 
     }
 
-
-    @Override
-    public void onClick(View view) {
-        this.setVisibility(View.GONE);
-        onClickCardViewListener.onClick();
+    public interface OnClickRemovePlayerListener {
+        public void onClick();
     }
 
-    public interface OnClickCardViewListener {
-        public void onClick();
+    public OnClickRemovePlayerListener getOnClickRemovePlayerListener() {
+        return onClickRemovePlayerListener;
+    }
+
+    public void setOnClickRemovePlayerListener(OnClickRemovePlayerListener onClickRemovePlayerListener) {
+        this.onClickRemovePlayerListener = onClickRemovePlayerListener;
+    }
+
+    public interface OnClickCardListener {
+        public void onClick(int orderPlayer, int cardOrder, View view, boolean isActivity);
     }
 }

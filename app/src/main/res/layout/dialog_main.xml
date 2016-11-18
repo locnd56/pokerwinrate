@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+
+        <com.sotatek.locnguyen.pokertexasholdem.customviews.CardView
+            android:id="@+id/card_diamond_13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:addimage="@mipmap/ic_card"></com.sotatek.locnguyen.pokertexasholdem.customviews.CardView>
+    </LinearLayout>
+</LinearLayout>

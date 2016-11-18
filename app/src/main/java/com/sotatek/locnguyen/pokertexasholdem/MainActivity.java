@@ -11,17 +11,24 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import com.sotatek.locnguyen.pokertexasholdem.Utils.Utils;
 import com.sotatek.locnguyen.pokertexasholdem.customviews.PlayerView;
+import com.sotatek.locnguyen.pokertexasholdem.customviews.WinRatingView;
 import com.sotatek.locnguyen.pokertexasholdem.enums.CardRankingEnum;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
     Spinner spn_cardranking;
     RadioGroup rg_cardsuit;
     int cardSuitChose = 0;
+    @BindView(R.id.activity_main)
+    LinearLayout ll_activity_main;
     LinearLayout ll_dealarea;
     LinearLayout ll_betarea;
     LinearLayout ll_winratearea;
@@ -33,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         Intent intent = getIntent();
         numberPlayer = Integer.parseInt(intent.getStringExtra("quantity"));
+        Utils.setupUI(MainActivity.this,ll_activity_main );
         initView();
         initData();
         initListener();
@@ -52,8 +61,21 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
         for (int i = 1; i <= numberPlayer; i++) {
             PlayerView playerView = new PlayerView(this, null);
+            playerView.setOrderPlayer(String.valueOf(i));
+            playerView.setOnClickRemovePlayerListener(new PlayerView.OnClickRemovePlayerListener() {
+                @Override
+                public void onClick() {
+                    ll_winratearea.setVisibility(View.GONE);
+                }
+            });
             ll_dealarea.addView(playerView);
+
+            WinRatingView winRatingView = new WinRatingView(this, null);
+            winRatingView.setOrderPlayer(String.valueOf(i));
+            ll_winratearea.addView(winRatingView);
         }
+
+
         spn_cardranking.setAdapter(new ArrayAdapter<CardRankingEnum>(this, android.R.layout.simple_spinner_item, CardRankingEnum.values()));
     }
 

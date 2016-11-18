@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="50dp"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/rl_label_player"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="@string/player" />
+        android:gravity="center_vertical"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/tv_lable_player"
+            style="@style/TextView_Default"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/player" />
+
+        <TextView
+            android:id="@+id/tv_orderplayer"
+            style="@style/TextView_Default"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_lable_player" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/rl_label_player"
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center_vertical"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/tv_label_win"
@@ -39,10 +55,10 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center_vertical"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/tv_label_tie"
@@ -59,8 +75,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
-
-
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
