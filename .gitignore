@@ -13,4 +13,4 @@ gradle.properties
 gradlew
 gradlew.bat
 gradle/wrapper
-.idea
+.idea/
