@@ -49,7 +49,7 @@ public enum RANK {
     private static final Map<Integer, RANK> map = new HashMap<>();
 
     static {
-        Stream.of(values()).forEach(item -> map.put(item.getValue(), item));
+//        Stream.of(values()).forEach(item -> map.put(item.getValue(), item));
     }
 
     /**

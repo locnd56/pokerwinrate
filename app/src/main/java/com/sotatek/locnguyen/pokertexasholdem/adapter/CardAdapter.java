@@ -1,8 +1,6 @@
-/**
- * 
- */
 package com.sotatek.locnguyen.pokertexasholdem.adapter;
 
+import java.math.RoundingMode;
 
 import com.sotatek.locnguyen.pokertexasholdem.enums.HandType;
 import com.sotatek.locnguyen.pokertexasholdem.enums.RANK;
